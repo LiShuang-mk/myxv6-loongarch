@@ -17,31 +17,31 @@
 static inline uint64
 r_sp()
 {
-  uint64 x;
-  asm volatile("addi.d %0, $sp, 0" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "addi.d %0, $sp, 0" : "=r" ( x ) );
+	return x;
 }
 
 static inline uint64
 r_tp()
 {
-  uint64 x;
-  asm volatile("addi.d %0, $tp, 0" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "addi.d %0, $tp, 0" : "=r" ( x ) );
+	return x;
 }
 
 static inline uint32
 r_csr_crmd()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x0" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x0" : "=r" ( x ) );
+	return x;
 }
 
-static inline void 
-w_csr_crmd(uint32 x)
+static inline void
+w_csr_crmd( uint32 x )
 {
-  asm volatile("csrwr %0, 0x0" : : "r" (x));
+	asm volatile( "csrwr %0, 0x0" : : "r" ( x ) );
 }
 
 #define PRMD_PPLV (3U << 0)  // Previous Privilege
@@ -50,29 +50,29 @@ w_csr_crmd(uint32 x)
 static inline uint32
 r_csr_prmd()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x1" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x1" : "=r" ( x ) );
+	return x;
 }
 
-static inline void 
-w_csr_prmd(uint32 x)
+static inline void
+w_csr_prmd( uint32 x )
 {
-  asm volatile("csrwr %0, 0x1" : : "r" (x));
+	asm volatile( "csrwr %0, 0x1" : : "r" ( x ) );
 }
 
 static inline uint64
 r_csr_era()
 {
-  uint64 x;
-  asm volatile("csrrd %0, 0x6" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "csrrd %0, 0x6" : "=r" ( x ) );
+	return x;
 }
 
-static inline void 
-w_csr_era(uint64 x)
+static inline void
+w_csr_era( uint64 x )
 {
-  asm volatile("csrwr %0, 0x6" : : "r" (x));
+	asm volatile( "csrwr %0, 0x6" : : "r" ( x ) );
 }
 
 #define CSR_ESTAT_ECODE  (0x3fU << 16)
@@ -80,9 +80,9 @@ w_csr_era(uint64 x)
 static inline uint32
 r_csr_estat()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x5" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x5" : "=r" ( x ) );
+	return x;
 }
 
 #define CSR_ECFG_VS_SHIFT  16 
@@ -93,15 +93,15 @@ r_csr_estat()
 static inline uint32
 r_csr_ecfg()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x4" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x4" : "=r" ( x ) );
+	return x;
 }
 
 static inline void
-w_csr_ecfg(uint32 x)
+w_csr_ecfg( uint32 x )
 {
-  asm volatile("csrwr %0, 0x4" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x4" : : "r" ( x ) );
 }
 
 #define CSR_TICLR_CLR  (0x1 << 0)
@@ -109,104 +109,104 @@ w_csr_ecfg(uint32 x)
 static inline uint32
 r_csr_ticlr()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x44" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x44" : "=r" ( x ) );
+	return x;
 }
 
 static inline void
-w_csr_ticlr(uint32 x)
+w_csr_ticlr( uint32 x )
 {
-  asm volatile("csrwr %0, 0x44" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x44" : : "r" ( x ) );
 }
 
 static inline uint64
 r_csr_eentry()
 {
-  uint64 x;
-  asm volatile("csrrd %0, 0xc" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "csrrd %0, 0xc" : "=r" ( x ) );
+	return x;
 }
 
 static inline uint64
 r_csr_tlbrelo0()
 {
-  uint64 x;
-  asm volatile("csrrd %0, 0x8c" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "csrrd %0, 0x8c" : "=r" ( x ) );
+	return x;
 }
 
 static inline uint64
 r_csr_tlbrelo1()
 {
-  uint64 x;
-  asm volatile("csrrd %0, 0x8d" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "csrrd %0, 0x8d" : "=r" ( x ) );
+	return x;
 }
 
 static inline void
-w_csr_eentry(uint64 x)
+w_csr_eentry( uint64 x )
 {
-  asm volatile("csrwr %0, 0xc" : : "r" (x) );
+	asm volatile( "csrwr %0, 0xc" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_tlbrentry(uint64 x)
+w_csr_tlbrentry( uint64 x )
 {
-  asm volatile("csrwr %0, 0x88" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x88" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_merrentry(uint64 x)
+w_csr_merrentry( uint64 x )
 {
-  asm volatile("csrwr %0, 0x93" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x93" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_stlbps(uint32 x)
+w_csr_stlbps( uint32 x )
 {
-  asm volatile("csrwr %0, 0x1e" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x1e" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_asid(uint32 x)
+w_csr_asid( uint32 x )
 {
-  asm volatile("csrwr %0, 0x18" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x18" : : "r" ( x ) );
 }
 
 #define CSR_TCFG_EN            (1U << 0)
 #define CSR_TCFG_PER           (1U << 1)
 
 static inline void
-w_csr_tcfg(uint64 x)
+w_csr_tcfg( uint64 x )
 {
-  asm volatile("csrwr %0, 0x41" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x41" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_tlbrehi(uint64 x)
+w_csr_tlbrehi( uint64 x )
 {
-  asm volatile("csrwr %0, 0x8e" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x8e" : : "r" ( x ) );
 }
 
 static inline uint64
 r_csr_pgdl()
 {
-  uint64 x;
-  asm volatile("csrrd %0, 0x19" : "=r" (x) );
-  return x;
+	uint64 x;
+	asm volatile( "csrrd %0, 0x19" : "=r" ( x ) );
+	return x;
 }
 
 static inline void
-w_csr_pgdl(uint64 x)
+w_csr_pgdl( uint64 x )
 {
-  asm volatile("csrwr %0, 0x19" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x19" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_pgdh(uint64 x)
+w_csr_pgdh( uint64 x )
 {
-  asm volatile("csrwr %0, 0x1a" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x1a" : : "r" ( x ) );
 }
 
 #define PTBASE  12U
@@ -221,65 +221,73 @@ w_csr_pgdh(uint64 x)
 #define DIR4WIDTH  0U
 
 static inline void
-w_csr_pwcl(uint32 x)
+w_csr_pwcl( uint32 x )
 {
-  asm volatile("csrwr %0, 0x1c" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x1c" : : "r" ( x ) );
 }
 
 static inline void
-w_csr_pwch(uint32 x)
+w_csr_pwch( uint32 x )
 {
-  asm volatile("csrwr %0, 0x1d" : : "r" (x) );
+	asm volatile( "csrwr %0, 0x1d" : : "r" ( x ) );
+}
+
+static inline uint32
+r_csr_badv()
+{
+	uint32 x;
+	asm volatile( "csrrd %0, 0x7" : "=r" ( x ) );
+	return x;
 }
 
 static inline uint32
 r_csr_badi()
 {
-  uint32 x;
-  asm volatile("csrrd %0, 0x8" : "=r" (x) );
-  return x;
+	uint32 x;
+	asm volatile( "csrrd %0, 0x8" : "=r" ( x ) );
+	return x;
 }
 
 /* IOCSR */
-static inline uint32 iocsr_readl(uint32 reg)
+static inline uint32 iocsr_readl( uint32 reg )
 {
-	return __iocsrrd_w(reg);
+	return __iocsrrd_w( reg );
 }
 
-static inline uint64 iocsr_readq(uint32 reg)
+static inline uint64 iocsr_readq( uint32 reg )
 {
-	return __iocsrrd_d(reg);
+	return __iocsrrd_d( reg );
 }
 
-static inline void iocsr_writel(uint32 val, uint32 reg)
+static inline void iocsr_writel( uint32 val, uint32 reg )
 {
-	__iocsrwr_w(val, reg);
+	__iocsrwr_w( val, reg );
 }
 
-static inline void iocsr_writeq(uint64 val, uint32 reg)
+static inline void iocsr_writeq( uint64 val, uint32 reg )
 {
-	__iocsrwr_d(val, reg);
+	__iocsrwr_d( val, reg );
 }
 
 static inline int
 intr_get()
 {
-  uint32 x = r_csr_crmd();
-  return (x & CSR_CRMD_IE) != 0;
+	uint32 x = r_csr_crmd();
+	return ( x & CSR_CRMD_IE ) != 0;
 }
 
 // enable device interrupts
 static inline void
 intr_on()
 {
-  w_csr_crmd(r_csr_crmd() | CSR_CRMD_IE);
+	w_csr_crmd( r_csr_crmd() | CSR_CRMD_IE );
 }
 
 // disable device interrupts
 static inline void
 intr_off()
 {
-  w_csr_crmd(r_csr_crmd() & ~CSR_CRMD_IE);
+	w_csr_crmd( r_csr_crmd() & ~CSR_CRMD_IE );
 }
 
 #define PGSIZE 4096 // bytes per page

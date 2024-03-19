@@ -29,6 +29,32 @@
 				},
 				"$gcc"
 			]
+		}, 
+		{
+			"label": "qemu ls2k", 
+			"type": "shell", 
+			"command": "echo 'TaskInfo: QEMU Starting' && echo 'TaskInfo: Start Debug' && gnome-terminal -e 'bash ./ls2k_debug.sh'",
+			"presentation": {
+				"echo": true,
+				"clear": true,
+				"group": "qemu"
+			},
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": ".*(error): (.*)",
+						"severity": 0,
+						"message": 1,
+					},
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": "^TaskInfo: QEMU Starting",
+						"endsPattern": "^TaskInfo: Start Debug"
+					},
+				},
+				"$gcc"
+			]
 		}
 	]
 }

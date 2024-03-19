@@ -244,6 +244,9 @@ devintr()
 	}
 	else
 	{
+		printf( "unkown exception.\n" );
+		printf( "badv: %x\n", r_csr_badv() );
+		printf( "badi: %x\n", r_csr_badi() );
 		return 0;
 	}
 }

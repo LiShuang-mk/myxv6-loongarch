@@ -1,0 +1,12 @@
+**/*.o
+**/*.d
+**/*.asm
+**/*.sym
+**/*.bin
+**/*.out
+user/_*
+fs.img
+kernel/kernel
+kernel/uImage
+mkfs/mkfs
+user/initcode
